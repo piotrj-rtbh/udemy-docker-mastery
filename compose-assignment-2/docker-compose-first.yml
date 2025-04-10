@@ -3,8 +3,7 @@
 
 services:
   drupal:
-    image: custom-drupal
-    build: .
+    image: drupal:9
     ports:
       - "8080:80" # checked in docker image inspect drupal:9 (config - exposed ports)
     volumes: ## copied from https://hub.docker.com/_/drupal
@@ -16,10 +15,7 @@ services:
     image: postgres:14
     environment:
       - POSTGRES_PASSWORD=mypasswd
-    volumes:
-      - drupal-data:/var/lib/postgresql/data
 volumes:
-  drupal-data:
   drupal-modules:
   drupal-profiles:
   drupal-sites:
